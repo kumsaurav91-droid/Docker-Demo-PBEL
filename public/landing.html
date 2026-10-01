@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UpTrack — Know the moment your website goes down</title>
+  <meta name="description" content="UpTrack is a free, self-hosted website uptime monitor with user accounts, incident tracking and analytics." />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233a7a6a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='22 12 18 12 15 21 9 3 6 12 2 12'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+  <script>try{var t=localStorage.getItem("uptrack:theme");document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
+</head>
+<body class="lp">
+  <header class="lp-nav">
+    <a class="lp-brand" href="/"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="4" r="2" fill="currentColor" stroke="none"/><path d="M7 9v5a5 5 0 0 0 10 0V4"/><polyline points="13 8 17 4 21 8"/></svg>UpTrack</a>
+    <button class="lp-burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav id="lp-menu">
+      <a href="#why">Why</a><a href="#features">Features</a><a href="#how">How it works</a><a href="#security">Security</a><a href="#faq">FAQ</a>
+      <button class="lp-theme" id="lp-theme" aria-label="Toggle theme"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <a class="btn btn-outline btn-sm" href="/login.html">Log in</a>
+      <a class="btn btn-primary btn-sm" href="/login.html?signup=1">Get started</a>
+    </nav>
+  </header>
+
+  <section class="lp-hero">
+    <span class="lp-pill"><i></i> Free · Self-hosted · Open source</span>
+    <h1>Know the moment your <span class="lp-grad">website goes down.</span></h1>
+    <p>UpTrack checks your websites around the clock, records every outage and shows uptime and response time in one clean dashboard, before your users have to tell you something is broken.</p>
+    <div class="lp-cta"><a class="btn btn-primary btn-lg" href="/login.html?signup=1">Create free account</a><a class="btn btn-outline btn-lg" href="#how">See how it works</a></div>
+    <div class="lp-trust"><span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> No credit card</span><span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 10 monitors per account</span><span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Setup in 1 minute</span></div>
+    <div class="lp-mock" aria-hidden="true">
+      <div class="lp-mock-top"><i></i><i></i><i></i><span>UpTrack · Dashboard</span></div>
+      <div class="lp-stats"><div><small>Monitors</small><b>3</b></div><div><small>Online</small><b class="ok">2</b></div><div><small>Uptime</small><b>99.2%</b></div><div><small>Avg. speed</small><b>180 ms</b></div></div>
+      <div class="lp-row"><b>Google</b><span class="ok">● Online</span><div class="bars" data-bad=""></div><em>202 ms</em></div>
+      <div class="lp-row"><b>My Portfolio</b><span class="ok">● Online</span><div class="bars" data-bad="40"></div><em>145 ms</em></div>
+      <div class="lp-row"><b>Client Store</b><span class="bad">● Offline</span><div class="bars" data-bad="12,13,14,30"></div><em>—</em></div>
+    </div>
+  </section>
+
+  <section class="lp-strip"><div><b>1–30 min</b><span>check interval</span></div><div><b>2 fails</b><span>before an incident</span></div><div><b>90 days</b><span>of analytics</span></div><div><b>0</b><span>npm dependencies</span></div></section>
+
+  <section id="why" class="lp-sec">
+    <span class="lp-eyebrow">Why UpTrack</span><h2>What is uptime monitoring, and why do you need it?</h2>
+    <p class="lp-lead">If your website is down and nobody tells you, you lose visitors, sales and trust, often for hours. UpTrack visits your site every few minutes like a real user would, and tells you the moment it is slow or unreachable.</p>
+    <div class="lp-cmp reveal">
+      <div class="no"><h3><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Without monitoring</h3><ul><li>You find out from an angry customer</li><li>You never know how long the site was down</li><li>You guess your uptime, you cannot prove it</li></ul></div>
+      <div class="yes"><h3><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> With UpTrack</h3><ul><li>You see the outage as it starts</li><li>Every incident is recorded with its duration</li><li>Real uptime and speed numbers, any time</li></ul></div>
+    </div>
+    <h3 class="lp-sub">Who is it for?</h3>
+    <div class="lp-grid four"><article class="lp-card reveal"><span class="lp-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6"/></svg></span><h3>Business owners</h3><p>Find out that your online store or landing page is down before a customer does.</p></article><article class="lp-card reveal"><span class="lp-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><h3>Developers & freelancers</h3><p>Watch every client website from one dashboard and show real uptime numbers in your reports.</p></article><article class="lp-card reveal"><span class="lp-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><h3>Students & makers</h3><p>Keep your portfolio and side projects online, and learn how monitoring really works.</p></article><article class="lp-card reveal"><span class="lp-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><h3>Small teams</h3><p>Give each teammate an account and keep track of all company websites in one place.</p></article></div>
+  </section>
+
+  <section id="features" class="lp-sec alt">
+    <span class="lp-eyebrow">Features</span><h2>Everything you need, nothing you don't</h2>
+    <div class="lp-grid three"><article class="lp-card reveal"><span class="lp-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></span><h3>Automatic checks</h3><p>Every 1, 5, 15 or 30 minutes using GET or HEAD requests, with a 10-second timeout and a fast retry after a failure.</p></article><article class="lp-card reveal"><span class="lp-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><h3>Smart incident tracking</h3><p>A site is marked offline only after 2 failed checks in a row, so one network blip does not create false alarms. Incidents close themselves and record how long the outage lasted.</p></article><article class="lp-card reveal"><span class="lp-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><h3>Uptime & speed analytics</h3><p>Uptime percentage and response-time charts for the last 24 hours, 7, 30 and 90 days, plus a check history for every monitor.</p></article><article class="lp-card reveal"><span class="lp-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><h3>Private accounts</h3><p>Sign up with your email. Every user gets their own monitors, incidents, stats and profile, invisible to everyone else.</p></article><article class="lp-card reveal"><span class="lp-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><h3>Light & dark mode</h3><p>A clean, responsive dashboard that follows your system theme and works on phones, tablets and desktops.</p></article><article class="lp-card reveal"><span class="lp-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/><polyline points="3.3 7 12 12 20.7 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg></span><h3>One-command deploy</h3><p>Zero npm dependencies. Run it with <code>docker compose up</code> and your data is kept in a Docker volume.</p></article></div>
+  </section>
+
+  <section id="how" class="lp-sec">
+    <span class="lp-eyebrow">How it works</span><h2>Get started in 3 steps</h2>
+    <div class="lp-grid three"><div class="lp-step reveal"><b>1</b><h3>Create your account</h3><p>Sign up with name, email and password. You get 3 sample monitors so the dashboard is never empty.</p></div><div class="lp-step reveal"><b>2</b><h3>Add your websites</h3><p>Enter a name and a domain, choose the check interval. The first check runs immediately.</p></div><div class="lp-step reveal"><b>3</b><h3>Watch and react</h3><p>See live status, uptime %, latency and every incident. Resolve incidents or check a site on demand.</p></div></div>
+  </section>
+
+  <section id="security" class="lp-sec alt">
+    <span class="lp-eyebrow">Security & privacy</span><h2>Built with safety in mind</h2>
+    <p class="lp-lead">You are trusting UpTrack with logins and your website list, so the basics are done properly.</p>
+    <ul class="lp-sec-list"><li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Passwords are hashed</b><span>scrypt with a unique salt per user. Plain passwords are never stored.</span></div></li><li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Protected sessions</b><span>httpOnly cookies, 30-day expiry, and all other devices are logged out when you change your password.</span></div></li><li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Brute-force protection</b><span>Repeated wrong passwords from one address are temporarily blocked.</span></div></li><li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>SSRF protection</b><span>Monitors cannot target private or internal network addresses unless the server owner allows it.</span></div></li><li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>CSRF protection</b><span>Write requests must be JSON and come from the same origin.</span></div></li><li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Your data stays yours</b><span>Self-hosted: everything lives on your own server, in one file you control.</span></div></li></ul>
+  </section>
+
+  <section class="lp-sec">
+    <span class="lp-eyebrow">Under the hood</span><h2>Simple, honest technology</h2>
+    <div class="lp-tech-grid">
+      <div class="tech-card"><b>Node.js 18+</b><span>Lightning fast runtime</span></div>
+      <div class="tech-card"><b>Docker &amp; Compose</b><span>One-command deploy</span></div>
+      <div class="tech-card"><b>JSON Storage</b><span>No database setup</span></div>
+      <div class="tech-card"><b>Zero dependencies</b><span>Secure and lightweight</span></div>
+    </div>
+    <div class="lp-roadmap-modern reveal">
+      <div class="road-left">
+        <h3>Coming Next</h3>
+        <p>We are constantly improving UpTrack. Here is what is arriving in the next major updates.</p>
+      </div>
+      <div class="road-right">
+        <ul class="road-timeline">
+          <li><div class="road-dot"></div><b>Email &amp; Telegram alerts</b><span>Get notified instantly when a site goes down.</span></li>
+          <li><div class="road-dot"></div><b>Public status pages</b><span>Share your live uptime with your users.</span></li>
+          <li><div class="road-dot"></div><b>Password reset</b><span>Self-serve account recovery via email.</span></li>
+          <li><div class="road-dot"></div><b>Keyword &amp; SSL checks</b><span>Check page content and certificate expiry.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="lp-sec alt">
+    <span class="lp-eyebrow">FAQ</span><h2>Questions people ask</h2>
+    <div class="lp-faq">
+      <details class="reveal"><summary>What exactly does UpTrack do?</summary><p>UpTrack acts like a virtual user that visits your websites 24/7. It checks if your site is online and measures how fast it loads. If your site goes down, UpTrack records the exact moment it happened so you can fix it before your customers notice.</p></details>
+      <details class="reveal"><summary>Is UpTrack completely free?</summary><p>Yes, UpTrack is 100% free and open-source. Because it is self-hosted, you simply run it on your own server or even a personal computer. There are no subscriptions, hidden fees, or premium tiers.</p></details>
+      <details class="reveal"><summary>Where is my monitoring data stored?</summary><p>Your data stays completely yours. Unlike other services, UpTrack doesn't require complex database setups. Everything is securely stored in a single JSON file on your own machine, making backups and migrations incredibly simple.</p></details>
+      <details class="reveal"><summary>Can I monitor private or internal networks?</summary><p>By default, UpTrack blocks scanning of internal IPs for security (SSRF protection). However, since you control the server, you can easily enable internal network monitoring by setting a simple environment variable.</p></details>
+      <details class="reveal"><summary>How do I get notified if my site goes down?</summary><p>Currently, outages are immediately tracked and displayed on your live dashboard. We are actively working on the next major update which will introduce instant Email and Telegram alerts directly to your phone.</p></details>
+    </div>
+  </section>
+
+  <section class="lp-final"><h2>Stop finding out from your customers.</h2><p>Create your free account and add your first website in under a minute.</p><a class="btn btn-primary btn-lg" href="/login.html?signup=1">Create free account</a></section>
+  <footer class="lp-foot"><div><b>UpTrack</b> · Website uptime monitor</div><div><a href="#why">Why</a><a href="#features">Features</a><a href="#faq">FAQ</a><a href="/login.html">Log in</a></div><small>Built by Saurav Kumar</small></footer>
+  <script src="js/landing.js"></script>
+</body>
+</html>

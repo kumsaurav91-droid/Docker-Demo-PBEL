@@ -1,0 +1,51 @@
+/* Login / signup page — unified gradient & glassmorphism redesign */
+.auth-body { min-height: 100vh; display: flex; align-items: center; justify-content: space-evenly; margin: 0; padding: 40px 5%; background: linear-gradient(to right, #d3cec4 0%, #100e0c 100%); font-family: var(--font); }
+
+/* Left side (Light) */
+.auth-left { flex: 1; max-width: 480px; display: flex; flex-direction: column; justify-content: center; color: #2c2a26; }
+.auth-logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 34px; margin-bottom: 34px; color: #3a9a5c; }
+.auth-logo:hover { color: #2c2a26; }
+.auth-title { font-size: 40px; margin-bottom: 16px; line-height: 1.1; letter-spacing: -1px; font-weight: 800; color: #2c2a26; }
+.auth-desc { font-size: 17px; color: #5c5850; margin-bottom: 30px; line-height: 1.6; }
+
+.auth-demo-box { background: rgba(0,0,0,0.04); padding: 16px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.08); max-width: 380px; }
+.auth-demo-box h3 { margin-bottom: 4px; font-size: 16px; font-weight: 700; color: #2c2a26; }
+.auth-demo-box p { color: #5c5850; font-size: 14px; margin-bottom: 16px; line-height: 1.5; }
+#demo-btn { width: 100%; border: 1px solid rgba(0,0,0,0.1); background: #ffffff; color: #2c2a26; font-weight: 700; padding: 10px; border-radius: 4px; font-size: 14px; cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+#demo-btn:hover { background: #fdfdfc; border-color: #3a9a5c; color: #3a9a5c; }
+
+/* Right side (Dark) */
+.auth-right { flex: 1; max-width: 360px; display: flex; align-items: center; justify-content: center; }
+.auth-card { width: 100%; background: #201e1b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 4px; padding: 24px; box-shadow: 0 16px 40px rgba(0,0,0,0.4); color: #e8e4dd; }
+.auth-card h2 { font-size: 24px; margin-bottom: 4px; font-weight: 800; color: #e8e4dd; letter-spacing: -0.5px; }
+.auth-sub { margin: 0 0 16px; color: #a09a8f; font-size: 14px; }
+
+.auth-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 3px; border-radius: 4px; background: #1a1816; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 16px; }
+.auth-tabs button { border: 0; padding: 8px; border-radius: 4px; background: transparent; color: #a09a8f; font: 600 13px var(--font); cursor: pointer; transition: all 0.2s; }
+.auth-tabs button.active { background: #2a2723; color: #e8e4dd; box-shadow: 0 2px 6px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); }
+.auth-tabs button:not(.active):hover { color: #e8e4dd; }
+
+.auth-card .form-group { margin-bottom: 12px; }
+.auth-card .form-group label { display: block; margin-bottom: 4px; font-size: 11px; font-weight: 700; color: #a09a8f; text-transform: uppercase; letter-spacing: 0.5px; }
+.auth-card input { width: 100%; box-sizing: border-box; padding: 8px 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.15); background: #2a2723; color: #e8e4dd; font: 14px var(--font); transition: all 0.2s; }
+.auth-card input::placeholder { color: #6b6560; }
+.auth-card input:focus { outline: none; border-color: #3a9a5c; background: #322f2a; box-shadow: 0 0 0 3px rgba(58,154,92,0.15); }
+
+.auth-submit { width: 100%; padding: 10px; font-size: 14px; font-weight: 700; border-radius: 4px; margin-top: 6px; background: #3a9a5c; color: #fff; transition: background 0.2s; border: none; cursor: pointer; }
+.auth-submit:hover { background: #328751; }
+
+.auth-error { display: none; margin-bottom: 12px; padding: 10px; border-radius: 4px; background: rgba(196,69,69,0.1); color: #fca5a5; font-size: 12px; border: 1px solid rgba(196,69,69,0.3); font-weight: 600; }
+.auth-error.show { display: block; }
+.auth-foot { margin: 16px 0 0; text-align: center; font-size: 13px; color: #a09a8f; }
+.auth-foot a { color: #3a9a5c; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+[hidden] { display: none !important; }
+
+@media (max-width: 900px) {
+  .auth-body { flex-direction: column; padding: 40px 20px; gap: 40px; background: #100e0c; }
+  .auth-title, .auth-demo-box h3, .auth-logo:hover { color: #e8e4dd; }
+  .auth-desc, .auth-demo-box p { color: #a09a8f; }
+  .auth-demo-box { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); text-align: left; }
+  .auth-left { max-width: 100%; text-align: center; align-items: center; }
+  .auth-logo { justify-content: center; }
+  .auth-right { max-width: 100%; width: 100%; }
+}

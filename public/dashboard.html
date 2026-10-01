@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UpTrack — Website Uptime Monitor</title>
+  <meta name="description" content="UpTrack is a real-time website uptime monitoring dashboard. Track endpoints, view incidents, and stay notified." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233a7a6a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='22 12 18 12 15 21 9 3 6 12 2 12'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== LEFT SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <a href="#" class="sidebar-logo" onclick="navigateTo('dashboard'); return false;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="4" r="2" fill="currentColor" stroke="none"/><path d="M7 9v5a5 5 0 0 0 10 0V4"/><polyline points="13 8 17 4 21 8"/></svg>
+        <span>UpTrack</span>
+      </a>
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <a href="#" class="sidebar-link active" data-page="dashboard">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="monitors">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          <span>Monitors</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="incidents">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span>Incidents</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="analytics">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span>Analytics</span>
+        </a>
+
+        <div class="sidebar-divider"></div>
+
+        <a href="#" class="sidebar-link" data-page="settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Settings</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="security">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>Security</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="data">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          <span>Data Management</span>
+        </a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">
+      <a href="#" class="sidebar-user" onclick="navigateTo('profile'); return false;" title="View Profile">
+        <div class="sidebar-avatar" data-u="initials">SK</div>
+        <div class="sidebar-user-info">
+          <span class="sidebar-username" data-u="name">Saurav Kumar</span>
+          <span class="sidebar-email" data-u="email">saurav@example.com</span>
+        </div>
+      </a>
+      <button class="btn btn-outline btn-sm sidebar-logout" id="logout-btn">Log out</button>
+    </div>
+  </aside>
+
+  <!-- Sidebar overlay for mobile -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- ===== MAIN WRAPPER ===== -->
+  <div class="main-wrapper" id="main-wrapper">
+
+    <!-- Top bar -->
+    <header class="topbar" id="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="search-box" id="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search monitors..." id="search-input" />
+        </div>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-date" id="topbar-date"></span>
+        <select class="topbar-select" id="topbar-period">
+          <option value="24h">Last 24 hours</option>
+          <option value="7d">Last 7 days</option>
+          <option value="30d">Last 30 days</option>
+        </select>
+        <button class="topbar-icon-btn" id="theme-toggle" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="topbar-icon-btn" id="notif-btn" aria-label="Notifications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </button>
+        <div class="topbar-avatar" onclick="navigateTo('profile')" style="cursor:pointer" title="Profile" data-u="initials">SK</div>
+      </div>
+    </header>
+
+    <!-- ===== PAGES ===== -->
+    <main class="main-content" id="main-content">
+
+      <!-- ========== DASHBOARD ========== -->
+      <section class="page active" id="page-dashboard">
+        <div class="page-header">
+          <div>
+            <h1 class="page-greeting" id="greeting">Welcome 👋</h1>
+            <p class="page-subtitle">Here's your monitoring overview for today.</p>
+          </div>
+        </div>
+        <div class="stats-grid" id="dash-stats"></div>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Uptime & Response Time</h2>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-line green"></span> Uptime (%)</span>
+              <span class="legend-item"><span class="legend-line blue"></span> Response Time (ms)</span>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="dashboard-chart"></canvas>
+          </div>
+        </div>
+        <div class="dash-grid">
+          <div class="card"><div class="card-header"><h2 class="card-title">Monitors</h2><a href="#" class="card-link" data-go="monitors">View all</a></div><div id="dash-monitors"></div></div>
+          <div class="card"><div class="card-header"><h2 class="card-title">Recent Incidents</h2><a href="#" class="card-link" data-go="incidents">View all</a></div><div id="dash-incidents"></div></div>
+        </div>
+      </section>
+
+      <!-- ========== MONITORS ========== -->
+      <section class="page" id="page-monitors">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Monitors</h1>
+            <p class="page-subtitle">Manage and monitor your websites and services.</p>
+          </div>
+          <button class="btn btn-primary" id="add-monitor-btn">+ Add Monitor</button>
+        </div>
+        <div class="toolbar">
+          <div class="filter-tabs" id="monitor-filters">
+            <button class="filter-tab active" data-filter="all">All <span class="ftab-count" id="fc-all">8</span></button>
+            <button class="filter-tab" data-filter="online">Online <span class="ftab-count" id="fc-online">7</span></button>
+            <button class="filter-tab" data-filter="offline">Offline <span class="ftab-count" id="fc-offline">1</span></button>
+            <button class="filter-tab" data-filter="paused">Paused <span class="ftab-count" id="fc-paused">0</span></button>
+          </div>
+        </div>
+        <div class="card table-card">
+          <div class="table-scroll">
+            <table class="data-table" id="monitors-table">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Name</th>
+                  <th>URL</th>
+                  <th>Uptime</th>
+                  <th>Response Time</th>
+                  <th>Last Checked</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="monitors-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== MONITOR DETAIL ========== -->
+      <section class="page" id="page-monitor-detail">
+        <div id="monitor-detail-content"></div>
+      </section>
+
+      <!-- ========== INCIDENTS ========== -->
+      <section class="page" id="page-incidents">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Incidents</h1>
+            <p class="page-subtitle">View and manage downtime incidents.</p>
+          </div>
+        </div>
+        <div class="toolbar">
+          <div class="filter-tabs" id="incident-filters">
+            <button class="filter-tab active" data-filter="all">All <span class="ftab-count" id="ic-all">5</span></button>
+            <button class="filter-tab" data-filter="ongoing">Ongoing <span class="ftab-count" id="ic-ongoing">1</span></button>
+            <button class="filter-tab" data-filter="resolved">Resolved <span class="ftab-count" id="ic-resolved">4</span></button>
+          </div>
+          <select class="toolbar-select" id="incident-period">
+            <option>Last 7 days</option>
+            <option>Last 30 days</option>
+            <option>All time</option>
+          </select>
+        </div>
+        <div class="card table-card">
+          <div class="table-scroll">
+            <table class="data-table" id="incidents-table">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Website</th>
+                  <th>Incident Time</th>
+                  <th>Duration</th>
+                  <th>Details</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="incidents-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== INCIDENT DETAIL ========== -->
+      <section class="page" id="page-incident-detail">
+        <div id="incident-detail-content"></div>
+      </section>
+
+      <!-- ========== ANALYTICS ========== -->
+      <section class="page" id="page-analytics">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Analytics</h1>
+            <p class="page-subtitle">Detailed insights and performance metrics.</p>
+          </div>
+          <div class="header-actions">
+            <select class="toolbar-select" id="analytics-period">
+              <option value="30d">Last 30 days</option>
+              <option value="7d">Last 7 days</option>
+              <option value="90d">Last 90 days</option>
+            </select>
+          </div>
+        </div>
+        <div class="stats-grid four-col" id="analytics-stats"></div>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Uptime Trend</h2>
+            <span class="card-meta">Last 30 days</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="analytics-chart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== PROFILE ========== -->
+      <section class="page" id="page-profile">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Profile</h1>
+            <p class="page-subtitle">Your account information and activity.</p>
+          </div>
+        </div>
+        <div class="profile-layout">
+          <div class="profile-main">
+            <!-- Profile Card -->
+            <div class="card profile-card">
+              <div class="profile-top">
+                <div class="profile-avatar-lg" data-u="initials">SK</div>
+                <div class="profile-info">
+                  <h2 class="profile-name" data-u="name">Saurav Kumar</h2>
+                  <p class="profile-email" data-u="email">saurav@example.com</p>
+                  <span class="badge badge-green">Active Account</span>
+                </div>
+                <button class="btn btn-outline btn-sm" onclick="navigateTo('settings')">Edit Profile</button>
+              </div>
+              <div class="profile-details-grid">
+                <div class="profile-detail"><span class="profile-detail-label">Role</span><span class="profile-detail-value">Admin</span></div>
+                <div class="profile-detail"><span class="profile-detail-label">Member Since</span><span class="profile-detail-value" data-u="since">Jan 15, 2025</span></div>
+                <div class="profile-detail"><span class="profile-detail-label">Plan</span><span class="profile-detail-value">UpTrack Free</span></div>
+                <div class="profile-detail"><span class="profile-detail-label">Time Zone</span><span class="profile-detail-value" data-u="tz">GMT+05:30 IST</span></div>
+              </div>
+            </div>
+            <!-- Usage Stats -->
+            <div class="stats-grid four-col" id="profile-usage">
+              <div class="stat-card"><div class="stat-label">Monitors</div><div class="stat-value" id="pu-monitors">8</div><div class="stat-sub">of 10 allowed</div></div>
+              <div class="stat-card"><div class="stat-label">Total Checks</div><div class="stat-value" id="pu-checks">11,882</div><div class="stat-sub">This month</div></div>
+              <div class="stat-card"><div class="stat-label">Incidents</div><div class="stat-value red" id="pu-incidents">5</div><div class="stat-sub">Last 30 days</div></div>
+              <div class="stat-card"><div class="stat-label">Avg Uptime</div><div class="stat-value green" id="pu-uptime">99.2%</div><div class="stat-sub">Fleet average</div></div>
+            </div>
+            <!-- Recent Activity -->
+            <div class="card">
+              <h3 class="card-title" style="margin-bottom:14px;">Recent Activity</h3>
+              <div id="profile-activity"></div>
+            </div>
+          </div>
+          <div class="profile-side">
+            <div class="card">
+              <h3 class="card-title" style="margin-bottom:12px;">Quick Actions</h3>
+              <div class="quick-actions">
+                <button class="quick-action-btn" onclick="navigateTo('settings')">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09"/></svg>
+                  Account Settings
+                </button>
+                <button class="quick-action-btn" onclick="navigateTo('security')">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  Security & Privacy
+                </button>
+                <button class="quick-action-btn" onclick="navigateTo('monitors')">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  Manage Monitors
+                </button>
+              </div>
+            </div>
+            <div class="card">
+              <h3 class="card-title" style="margin-bottom:12px;">Connected Services</h3>
+              <div class="connected-list">
+                <div class="connected-item"><span class="connected-dot online"></span><span>Email Alerts</span><span class="connected-status">Active</span></div>
+                <div class="connected-item"><span class="connected-dot online"></span><span>Slack Webhook</span><span class="connected-status">Active</span></div>
+                <div class="connected-item"><span class="connected-dot paused"></span><span>PagerDuty</span><span class="connected-status off">Not Set</span></div>
+                <div class="connected-item"><span class="connected-dot paused"></span><span>Discord Bot</span><span class="connected-status off">Not Set</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== SETTINGS ========== -->
+      <section class="page" id="page-settings">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Settings</h1>
+            <p class="page-subtitle">Manage your account and application preferences.</p>
+          </div>
+        </div>
+        <div class="settings-layout">
+          <div class="settings-sidebar" id="settings-sidebar">
+            <button class="settings-tab active" data-stab="general">General</button>
+            <button class="settings-tab" data-stab="notifications">Notifications</button>
+            <button class="settings-tab" data-stab="monitoring">Monitoring</button>
+            <button class="settings-tab" data-stab="appearance">Appearance</button>
+            <button class="settings-tab" data-stab="account">Account</button>
+          </div>
+          <div class="settings-content" id="settings-content">
+            <!-- General Tab -->
+            <div class="settings-panel active" id="panel-general">
+              <div class="card">
+                <h3 class="card-title">General Settings</h3>
+                <div class="form-grid">
+                  <div class="form-group"><label for="s-name">Name</label><input type="text" id="s-name" value="" /></div>
+                  <div class="form-group"><label for="s-email">Email</label><input type="email" id="s-email" value="" disabled /></div>
+                  <div class="form-group form-full"><label for="s-timezone">Time Zone</label>
+                    <select id="s-timezone"><option>(GMT+05:30) India Standard Time</option><option>(GMT+00:00) UTC</option><option>(GMT-05:00) Eastern Time</option><option>(GMT-08:00) Pacific Time</option></select>
+                  </div>
+                  <div class="form-group form-full"><label for="s-interval">Default Check Interval</label>
+                    <select id="s-interval"><option>1 minute</option><option selected>5 minutes</option><option>15 minutes</option><option>30 minutes</option></select>
+                  </div>
+                </div>
+                <div class="form-divider"></div>
+                <div class="form-checks">
+                  <label class="check-label"><input type="checkbox" /> Pause all monitors temporarily</label>
+                </div>
+                <div class="form-actions"><button class="btn btn-primary">Save Changes</button></div>
+              </div>
+            </div>
+            <!-- Notifications Tab -->
+            <div class="settings-panel" id="panel-notifications">
+              <div class="card">
+                <h3 class="card-title">Notifications</h3>
+                <p class="card-desc">Email and Telegram alerts are coming soon. Until then, every outage and recovery shows up on your Dashboard, in the Incidents list and in the bell menu at the top.</p>
+              </div>
+            </div>
+            <!-- Monitoring Tab -->
+            <div class="settings-panel" id="panel-monitoring">
+              <div class="card">
+                <h3 class="card-title">How monitoring works</h3>
+                <p class="card-desc">These values are fixed on the server. The check interval and HTTP method are chosen per monitor when you add it.</p>
+                <div class="setting-row"><div class="setting-info"><span class="setting-label-text">Request timeout</span><span class="setting-desc">10 seconds</span></div></div>
+                <div class="setting-row"><div class="setting-info"><span class="setting-label-text">Failures before an incident</span><span class="setting-desc">2 failed checks in a row (the retry runs after 30 seconds)</span></div></div>
+                <div class="setting-row"><div class="setting-info"><span class="setting-label-text">Monitor limit</span><span class="setting-desc">10 monitors per account</span></div></div>
+              </div>
+            </div>
+            <!-- Appearance Tab -->
+            <div class="settings-panel" id="panel-appearance">
+              <div class="card">
+                <h3 class="card-title">Appearance</h3>
+                <div class="theme-picker">
+                  <label class="theme-card selected" id="theme-light-card"><input type="radio" name="theme" value="light" checked /><div class="theme-preview light-preview"></div><span class="theme-name">Light Mode</span></label>
+                  <label class="theme-card" id="theme-dark-card"><input type="radio" name="theme" value="dark" /><div class="theme-preview dark-preview"></div><span class="theme-name">Dark Mode</span></label>
+                </div>
+              </div>
+            </div>
+            <!-- Account Tab -->
+            <div class="settings-panel" id="panel-account">
+              <div class="card">
+                <h3 class="card-title">Account Information</h3>
+                <div class="form-grid">
+                  <div class="form-group"><label>Plan</label><input type="text" value="UpTrack Free" disabled /></div>
+                  <div class="form-group"><label>Endpoints</label><input type="text" id="ep-used" value="8 / 10" disabled /></div>
+                  <div class="form-group"><label>Member Since</label><input type="text" value="" data-u="sinceLong" disabled /></div>
+                  <div class="form-group"><label>Account ID</label><input type="text" value="" data-u="accountId" disabled style="font-family:var(--mono);" /></div>
+                </div>
+                <div class="form-divider"></div>
+                <h3 class="card-title">Change Password</h3>
+                <div class="form-grid" style="margin-top:12px;">
+                  <div class="form-group form-full"><label for="pw-cur">Current Password</label><input type="password" id="pw-cur" autocomplete="current-password" placeholder="Enter current password" /></div>
+                  <div class="form-group"><label for="pw-new">New Password</label><input type="password" id="pw-new" autocomplete="new-password" placeholder="Min 8 characters" /></div>
+                  <div class="form-group"><label for="pw-conf">Confirm Password</label><input type="password" id="pw-conf" autocomplete="new-password" placeholder="Confirm new password" /></div>
+                </div>
+                <div class="form-actions"><button class="btn btn-primary" id="pw-save">Change Password</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== SECURITY ========== -->
+      <section class="page" id="page-security">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Security</h1>
+            <p class="page-subtitle">See where you are logged in and keep your account safe.</p>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Active Sessions</h3>
+          <p class="card-desc">Devices that are currently logged in to your account.</p>
+          <div class="session-list" id="session-list"><div class="session-item"><div class="session-info"><span class="session-meta">Loading…</span></div></div></div>
+          <button class="btn btn-outline btn-sm" id="logout-others" style="margin-top:12px;display:none">Log out all other devices</button>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Password</h3>
+          <p class="card-desc">You can change your password in Settings → Account. Changing it logs out all other devices.</p>
+          <button class="btn btn-outline btn-sm" onclick="navigateTo('settings')">Go to Settings</button>
+        </div>
+      </section>
+
+    
+      <!-- ========== DATA MANAGEMENT ========== -->
+      <section class="page" id="page-data">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Data Management</h1>
+            <p class="page-subtitle">Export your data, review activity and manage stored data.</p>
+          </div>
+        </div>
+              <div class="card">
+                <h3 class="card-title">Export Data</h3>
+                <p class="card-desc">Download a copy of your monitoring data, incident history, and account information.</p>
+                <div class="export-options">
+                  <button class="btn btn-outline btn-sm" onclick="exportData('monitors')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Export Monitors (CSV)
+                  </button>
+                  <button class="btn btn-outline btn-sm" onclick="exportData('incidents')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Export Incidents (CSV)
+                  </button>
+                  <button class="btn btn-outline btn-sm" onclick="exportData('json')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Full Backup (JSON)
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <h3 class="card-title">Activity Log</h3>
+                <p class="card-desc">View a history of account actions and changes.</p>
+                <div class="activity-log" id="sec-activity-log"></div>
+              </div>
+              <div class="card danger-card">
+                <h3 class="card-title" style="color:var(--red)">Danger Zone</h3>
+                <p class="card-desc">These actions are irreversible. Please proceed with caution.</p>
+                <div class="danger-actions"><button class="btn btn-outline btn-sm" onclick="restoreSamples()">Restore Sample Monitors</button><button class="btn btn-danger btn-sm" onclick="clearMonitoring()">Delete All Monitoring Data</button><button class="btn btn-danger btn-sm" id="delete-account">Delete Account Permanently</button></div>
+              </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===== ADD MONITOR MODAL ===== -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="add-modal">
+      <div class="modal-header">
+        <h2>Add New Monitor</h2>
+        <button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
+      </div>
+      <form id="add-monitor-form">
+        <div class="form-group"><label for="m-name">Website Name</label><input type="text" id="m-name" placeholder="e.g. My Portfolio" required /></div>
+        <div class="form-group"><label for="m-url">Website URL</label>
+          <div class="input-prefix-wrap"><span class="input-prefix">https://</span><input type="text" id="m-url" placeholder="example.com" required /></div>
+        </div>
+        <div class="form-row-2">
+          <div class="form-group"><label for="m-method">HTTP Method (Optional)</label><select id="m-method"><option>GET</option><option>POST</option><option>HEAD</option></select></div>
+          <div class="form-group"><label for="m-interval">Check Interval</label><select id="m-interval"><option value="1">1 minute</option><option value="5" selected>5 minutes</option><option value="15">15 minutes</option><option value="30">30 minutes</option></select></div>
+        </div>
+        <div class="form-actions modal-actions">
+          <button type="button" class="btn btn-ghost" id="modal-cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Monitor</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="js/script.js"></script>
+  <script src="js/enhance.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

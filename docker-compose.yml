@@ -1,0 +1,18 @@
+services:
+  uptrack:
+    build: .
+    container_name: uptrack
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      ALLOW_SIGNUP: "1"     # 0 = close registration
+      DEMO_ACCOUNT: "1"     # 1 = "Log in with Demo Account" button works (reset every 6 hours)
+      MAX_USERS: "100"      # maximum number of real accounts
+      COOKIE_SECURE: "0"    # set to 1 when served over HTTPS
+      TRUST_PROXY: "0"      # set to 1 behind Nginx / Caddy
+      ALLOW_PRIVATE: "0"    # 1 = allow monitoring localhost / private IPs
+    volumes:
+      - uptrack-data:/data  # database lives here
+volumes:
+  uptrack-data:

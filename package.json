@@ -1,0 +1,21 @@
+{
+  "name": "uptrack",
+  "version": "1.0.0",
+  "description": "UpTrack — website uptime monitor ",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "private": true,
+  "keywords": [
+    "uptime",
+    "monitoring",
+    "nodejs",
+    "docker",
+    "self-hosted"
+  ],
+  "author": "Saurav Kumar"
+}

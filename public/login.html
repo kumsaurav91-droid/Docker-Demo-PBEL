@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UpTrack — Log in</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233a7a6a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='22 12 18 12 15 21 9 3 6 12 2 12'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <script>if (matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.dataset.theme = "dark";</script>
+</head>
+<body class="auth-body">
+  <div class="auth-left">
+    <a href="/" class="auth-logo" style="text-decoration: none;">
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="4" r="2" fill="currentColor" stroke="none"/><path d="M7 9v5a5 5 0 0 0 10 0V4"/><polyline points="13 8 17 4 21 8"/></svg>
+      <span>UpTrack</span>
+    </a>
+    <h1 class="auth-title">Monitor your websites with zero friction.</h1>
+    <p class="auth-desc">Get instantly notified when your site goes down. Trusted by developers, businesses, and agencies.</p>
+    
+    <div class="auth-demo-box">
+      <h3>Try the demo</h3>
+      <p>Use our pre-configured demo account to explore the dashboard instantly.</p>
+      <button type="button" id="demo-btn">Log in with Demo Account</button>
+    </div>
+  </div>
+
+  <main class="auth-right">
+    <div class="auth-card">
+      <h2>Welcome back</h2>
+      <p class="auth-sub" id="auth-sub">Log in to your dashboard.</p>
+
+      <div class="auth-tabs">
+        <button type="button" class="active" data-tab="login">Log in</button>
+        <button type="button" data-tab="signup">Create account</button>
+      </div>
+
+      <div class="auth-error" id="auth-error" role="alert"></div>
+
+      <form id="auth-form" novalidate>
+        <div class="form-group" id="g-name" hidden><label for="a-name">Full name</label><input type="text" id="a-name" autocomplete="name" placeholder="Your name" /></div>
+        <div class="form-group"><label for="a-email">Email</label><input type="email" id="a-email" autocomplete="email" placeholder="you@example.com" required /></div>
+        <div class="form-group"><label for="a-pass">Password</label><input type="password" id="a-pass" autocomplete="current-password" placeholder="Min 8 characters" required /></div>
+        <div class="form-group" id="g-conf" hidden><label for="a-conf">Confirm password</label><input type="password" id="a-conf" autocomplete="new-password" placeholder="Repeat password" /></div>
+        <button type="submit" class="auth-submit" id="auth-submit">Log in</button>
+      </form>
+      <p class="auth-foot" id="auth-foot">New here? <a href="#" data-tab="signup">Create a free account</a></p>
+    </div>
+  </main>
+  <script src="js/login.js"></script>
+</body>
+</html>
