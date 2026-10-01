@@ -10,7 +10,7 @@
 
 ---
 
-<img src="https://res.cloudinary.com/dtz0urit6/image/upload/q_auto:best,f_webp/cloudinary-tools-uploads/drl3garnfnv0ndu8e6w3" alt="UpTrack Dashboard Preview" width="100%"/>
+<img src="https://cdn.corenexis.com/f/sfvGvlNAanR.png" alt="UpTrack Dashboard Preview" width="100%"/>
 
 </div>
 
