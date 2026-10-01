@@ -104,7 +104,7 @@ uptrack/
 
 ```bash
 git clone https://github.com/kumsaurav91-droid/Docker-Demo-PBEL.git
-cd uptrack
+cd Docker-Demo-PBEL
 ```
 
 ---
